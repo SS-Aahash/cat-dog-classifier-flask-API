@@ -57,6 +57,10 @@ def predict():
 
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
+
+    upload_folder = 'uploads'
+    if not os.path.exists(upload_folder):
+        os.makedirs(upload_folder)
     
     #save the image temorarily
     img_path = os.path.join('uploads',file.filename)
